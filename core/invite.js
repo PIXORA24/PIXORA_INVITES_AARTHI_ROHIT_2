@@ -7,7 +7,6 @@ if (!event) {
   throw new Error("Invalid event");
 }
 
-/* DOM */
 const video = document.getElementById("inviteVideo");
 const music = document.getElementById("inviteMusic");
 const countdown = document.getElementById("countdown");
@@ -17,12 +16,7 @@ const calendarLink = document.getElementById("calendarLink");
 /* MEDIA SOURCES ONLY */
 video.src = event.path + "video.mp4";
 video.poster = event.path + "bg.jpg";
-video.playsInline = true;
-video.muted = true;          // important
-video.preload = "metadata";
-
 music.src = event.path + "music.mp3";
-music.loop = true;
 
 /* MAP */
 mapLink.href = event.mapLink;
