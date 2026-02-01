@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Aarthi & Rohit Wedding Invitation</title>
+
+  <!-- WhatsApp / Instagram Preview -->
+  <meta property="og:title" content="Aarthi & Rohit are getting married 💍" />
+  <meta property="og:description"
+        content="With the blessings of our families, we joyfully invite you to celebrate our wedding and reception." />
+  <meta property="og:image"
+        content="https://pixora24.github.io/PIXORA_INVITES_AARTHI_ROHIT/assets/preview.jpg" />
+  <meta property="og:type" content="website" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Base page styling -->
+  <style>
+    body {
+      margin: 0;
+      padding: 24px 16px 40px;
+      background: radial-gradient(circle at top, #1c0d14 0%, #000 70%);
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+    }
+
+    #eventGrid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+    }
+  </style>
+
+  <!-- Glass + Ripple styles -->
+  <link rel="stylesheet" href="core/glass.css">
+
+  <!-- Font for invite feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- REQUIRED container -->
+  <div id="eventGrid"></div>
+
+  <!-- Load client config FIRST -->
+  <script src="config.js"></script>
+
+  <!-- Ripple interaction -->
+  <script src="core/ripple.js" defer></script>
+
+  <!-- Landing page logic -->
+  <script src="core/index.js" defer></script>
+
+</body>
+</html>
