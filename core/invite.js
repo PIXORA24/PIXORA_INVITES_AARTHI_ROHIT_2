@@ -7,16 +7,21 @@ if (!event) {
   throw new Error("Invalid event");
 }
 
+/* DOM */
 const video = document.getElementById("inviteVideo");
 const music = document.getElementById("inviteMusic");
 const countdown = document.getElementById("countdown");
 const mapLink = document.getElementById("mapLink");
 const calendarLink = document.getElementById("calendarLink");
 
-/* MEDIA SOURCES ONLY */
+/* MEDIA SOURCES ONLY — NO PLAY HERE */
 video.src = event.path + "video.mp4";
 video.poster = event.path + "bg.jpg";
+video.playsInline = true;
+video.muted = true;
+
 music.src = event.path + "music.mp3";
+music.loop = true;
 
 /* MAP */
 mapLink.href = event.mapLink;
