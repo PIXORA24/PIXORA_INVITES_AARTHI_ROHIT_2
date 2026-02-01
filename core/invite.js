@@ -14,7 +14,7 @@ const countdown = document.getElementById("countdown");
 const mapLink = document.getElementById("mapLink");
 const calendarLink = document.getElementById("calendarLink");
 
-/* Media sources */
+/* MEDIA SOURCES ONLY */
 video.src = event.path + "video.mp4";
 video.poster = event.path + "bg.jpg";
 video.playsInline = true;
@@ -24,10 +24,10 @@ video.preload = "metadata";
 music.src = event.path + "music.mp3";
 music.loop = true;
 
-/* Map */
+/* MAP */
 mapLink.href = event.mapLink;
 
-/* Countdown */
+/* COUNTDOWN */
 const target = new Date(event.dateTimeISO).getTime();
 
 function tick() {
@@ -48,7 +48,7 @@ function tick() {
 tick();
 setInterval(tick, 60000);
 
-/* Calendar */
+/* CALENDAR */
 const start = event.dateTimeISO.replace(/[-:]/g, "").split(".")[0];
 calendarLink.href =
   `https://www.google.com/calendar/render?action=TEMPLATE` +
