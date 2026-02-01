@@ -26,7 +26,6 @@ html, body {
   text-align: center;
 }
 
-/* INVITE FRAME */
 .invite-frame {
   position: relative;
   max-width: 360px;
@@ -69,19 +68,18 @@ html, body {
   font-size: 15px;
   letter-spacing: 0.6px;
   border: none;
+  cursor: pointer;
   box-shadow:
     0 10px 30px rgba(212,175,55,0.45),
     inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-/* COUNTDOWN */
 #countdown {
   margin-top: 14px;
   font-size: 14px;
   opacity: 0.9;
 }
 
-/* ACTION BAR */
 .action-bar {
   position: fixed;
   left: 0;
@@ -138,27 +136,18 @@ const btn = document.getElementById("startInviteBtn");
 const video = document.getElementById("inviteVideo");
 const music = document.getElementById("inviteMusic");
 
-let ready = false;
-
-/* Wait until media is loadable */
-Promise.all([
-  new Promise(res => video.addEventListener("canplay", res, { once: true })),
-  new Promise(res => music.addEventListener("canplay", res, { once: true }))
-]).then(() => {
-  ready = true;
-});
-
-/* USER GESTURE */
+/* 🚨 THIS IS THE KEY FIX */
 btn.addEventListener("click", () => {
-  if (!ready) return;
-
+  // unmute & reset
   video.muted = false;
   video.currentTime = 0;
   music.currentTime = 0;
 
+  // USER GESTURE → PLAY
   video.play();
   music.play();
 
+  // remove overlay
   veil.style.display = "none";
 }, { once: true });
 </script>
