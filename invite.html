@@ -310,38 +310,27 @@ const veil = document.getElementById("ceremonyVeil");
 const video = document.getElementById("inviteVideo");
 const music = document.getElementById("inviteMusic");
 
-/* Robust iOS detection */
-const isIOS =
-  /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+/* Always show overlay */
+veil.classList.add("show");
 
-if (isIOS) {
-  veil.classList.add("show");
+function startInvite() {
+  veil.classList.add("hide");
 
-  const startInvite = () => {
-    veil.classList.add("hide");
+  video.muted = false;
 
-    video.muted = false;
-    video.play().catch(() => {});
+  Promise.resolve()
+    .then(() => video.play())
+    .then(() => music.play())
+    .catch(() => {});
 
-    music.volume = 0;
-    music.play().then(() => {
-      let v = 0;
-      const fade = setInterval(() => {
-        v += 0.05;
-        music.volume = Math.min(v, 1);
-        if (v >= 1) clearInterval(fade);
-      }, 80);
-    }).catch(() => {});
-
-    veil.removeEventListener("touchstart", startInvite);
-    veil.removeEventListener("click", startInvite);
-  };
-
-  veil.addEventListener("touchstart", startInvite);
-  veil.addEventListener("click", startInvite);
+  veil.removeEventListener("click", startInvite);
+  veil.removeEventListener("touchstart", startInvite);
 }
+
+veil.addEventListener("click", startInvite, { once: true });
+veil.addEventListener("touchstart", startInvite, { once: true });
 </script>
+
 
 </body>
 </html>
