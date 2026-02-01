@@ -318,10 +318,9 @@ function startInvite() {
 
   video.muted = false;
 
-  Promise.resolve()
-    .then(() => video.play())
-    .then(() => music.play())
-    .catch(() => {});
+  /* ONE user gesture → unlock everything */
+  video.play().catch(() => {});
+  music.play().catch(() => {});
 
   veil.removeEventListener("click", startInvite);
   veil.removeEventListener("touchstart", startInvite);
