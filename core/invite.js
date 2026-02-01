@@ -14,14 +14,16 @@ const countdown = document.getElementById("countdown");
 const mapLink = document.getElementById("mapLink");
 const calendarLink = document.getElementById("calendarLink");
 
-/* MEDIA SOURCES ONLY — NO PLAY HERE */
+/* MEDIA SOURCES ONLY — DO NOT PLAY HERE */
 video.src = event.path + "video.mp4";
 video.poster = event.path + "bg.jpg";
 video.playsInline = true;
 video.muted = true;
+video.preload = "metadata";
 
 music.src = event.path + "music.mp3";
 music.loop = true;
+music.preload = "auto";
 
 /* MAP */
 mapLink.href = event.mapLink;
