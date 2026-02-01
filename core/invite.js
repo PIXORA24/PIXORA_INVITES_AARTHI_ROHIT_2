@@ -7,19 +7,25 @@ if (!event) {
   throw new Error("Invalid event");
 }
 
+/* DOM */
 const video = document.getElementById("inviteVideo");
 const music = document.getElementById("inviteMusic");
 const countdown = document.getElementById("countdown");
 const mapLink = document.getElementById("mapLink");
 const calendarLink = document.getElementById("calendarLink");
 
+/* Media sources */
 video.src = event.path + "video.mp4";
 video.poster = event.path + "bg.jpg";
-music.src = event.path + "music.mp3";
-mapLink.href = event.mapLink;
+video.playsInline = true;
+video.muted = true;          // important
+video.preload = "metadata";
 
-video.play();
-music.play().catch(() => {});
+music.src = event.path + "music.mp3";
+music.loop = true;
+
+/* Map */
+mapLink.href = event.mapLink;
 
 /* Countdown */
 const target = new Date(event.dateTimeISO).getTime();
